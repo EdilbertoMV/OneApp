@@ -6,67 +6,91 @@
     android:layout_height="match_parent"
     tools:context="app.oneapp.eddy.myapp.com.oneapp.ActivityInicio">
 
-    <RelativeLayout
-        android:layout_width="394dp"
-        android:layout_height="502dp"
-        tools:layout_editor_absoluteX="-5dp"
+    <Button
+        android:id="@+id/buttonEditarEmpresa"
+        android:layout_width="226dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonVerEmpresas"
+        android:layout_alignStart="@+id/buttonCrearEmpresa"
+        android:text="Editar Empresa"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCrearEmpresa"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCrearEmpresa"
+        android:layout_width="226dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonEditarEmpresa"
+        android:layout_alignStart="@+id/buttonVerEmpresas"
+        android:text="Crear Empresa"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageInicial"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="321dp"
+        android:layout_height="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="BIENVENIDO A SPONSORSHIP REGISTRATION"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp">
+        android:layout_marginLeft="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.512" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="226dp"
-            android:layout_height="50dp"
-            android:text="Editar Empresa"
-            tools:layout_editor_absoluteX="79dp"
-            tools:layout_editor_absoluteY="215dp"
-            android:layout_above="@+id/buttonEditarEmpresa"
-            android:layout_alignStart="@+id/buttonCrearEmpresa"
-            android:layout_marginBottom="43dp" />
+    <Button
+        android:id="@+id/buttonVerEmpresas"
+        android:layout_width="226dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonIniciarTransmision"
+        android:layout_centerHorizontal="true"
+        android:text="Ver Empresas"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditarEmpresa"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        <Button
-            android:id="@+id/buttonCrearEmpresa"
-            android:layout_width="226dp"
-            android:layout_height="50dp"
-            android:text="Crear Empresa"
-            tools:layout_editor_absoluteX="79dp"
-            tools:layout_editor_absoluteY="138dp"
-            android:layout_above="@+id/button5"
-            android:layout_alignStart="@+id/buttonEditarEmpresa"
-            android:layout_marginBottom="35dp" />
+    <Button
+        android:id="@+id/buttonIniciarTransmision"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="25dp"
+        android:text="Iniciar Transmisión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonVerEmpresas"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="321dp"
-            android:layout_height="44dp"
-            android:text="BIENVENIDO A SPONSORSHIP REGISTRATION"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="56dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="39dp" />
-
-        <Button
-            android:id="@+id/buttonEditarEmpresa"
-            android:layout_width="226dp"
-            android:layout_height="50dp"
-            android:text="Ver Empresas"
-            tools:layout_editor_absoluteX="79dp"
-            tools:layout_editor_absoluteY="290dp"
-            android:layout_above="@+id/buttonIniciarPartido"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="40dp" />
-
-        <Button
-            android:id="@+id/buttonIniciarPartido"
-            android:layout_width="380dp"
-            android:layout_height="113dp"
-            android:text="Iniciar Partido"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="398dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true" />
-    </RelativeLayout>
-
+    <ImageView
+        android:id="@+id/imageInicial"
+        android:layout_width="118dp"
+        android:layout_height="92dp"
+        app:srcCompat="@android:drawable/ic_menu_agenda"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

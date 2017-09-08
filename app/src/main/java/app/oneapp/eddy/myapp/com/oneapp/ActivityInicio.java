@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class ActivityInicio extends AppCompatActivity {
 
-    private View btn;
+    private View btn, btn2;
     private final String gg = "Holi Edd";
 
     @Override
@@ -17,6 +17,7 @@ public class ActivityInicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         btn = (Button) findViewById(R.id.buttonCrearEmpresa);
+        btn2 = (Button) findViewById(R.id.buttonEditarEmpresa);
 
         btn.setOnClickListener(new View.OnClickListener(){
                                    @Override
@@ -26,11 +27,16 @@ public class ActivityInicio extends AppCompatActivity {
                                        startActivity(intent);
                                    }
                                }
-
-
-
         );
 
-
+        btn2.setOnClickListener(new View.OnClickListener(){
+                                   @Override
+                                   public void onClick(View view) {
+                                       Intent intent = new Intent(ActivityInicio.this, ActivityEdit.class);
+                                       //intent.putExtra("g",gg );
+                                       startActivity(intent);
+                                   }
+                               }
+        );
     }
 }
