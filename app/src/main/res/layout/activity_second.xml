@@ -14,7 +14,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText15" />
+        app:layout_constraintTop_toBottomOf="@+id/eTEmisora" />
 
     <TextView
         android:id="@+id/textVEmisoraEdit"
@@ -24,7 +24,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText14" />
+        app:layout_constraintTop_toBottomOf="@+id/eTMerchandising" />
 
     <TextView
         android:id="@+id/textVMerchandisingEdit"
@@ -34,10 +34,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText13" />
+        app:layout_constraintTop_toBottomOf="@+id/eTProducto" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/eTCodigo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textVCodigoEdit" />
 
     <EditText
-        android:id="@+id/editText15"
+        android:id="@+id/eTEmisora"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textVEmisoraEdit" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/eTMerchandising"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textVMerchandisingEdit" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/eTProducto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -103,14 +103,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText9"
+        app:layout_constraintTop_toBottomOf="@+id/eTCodigo"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="0dp"
         android:layout_marginRight="0dp"

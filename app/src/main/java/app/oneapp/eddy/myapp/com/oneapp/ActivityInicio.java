@@ -9,7 +9,6 @@ import android.widget.Button;
 public class ActivityInicio extends AppCompatActivity {
 
     private View btn, btn2;
-    private final String gg = "Holi Edd";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
