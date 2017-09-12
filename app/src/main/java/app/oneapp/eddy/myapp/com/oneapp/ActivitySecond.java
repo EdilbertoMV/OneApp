@@ -37,7 +37,7 @@ public class ActivitySecond extends AppCompatActivity {
                 if(pro.length() > 0 && mercha.length() > 0 && emi.length() > 0 && cod.length() > 0){
 
                     empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivitySecond.this, "DBEmpresas", null, 1);
-                    SQLiteDatabase db =empresa.getWritableDatabase();
+                    SQLiteDatabase db = empresa.getWritableDatabase();
 
                     db.execSQL("INSERT INTO empresa (indice, nombre, merchandising, emisora, codigo) VALUES (" + pro + ", '" + mercha + ", '" + emi + ", '" + cod + "')");
                     db.close();

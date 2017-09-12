@@ -7,12 +7,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class empresaSQLiteHelper extends SQLiteOpenHelper {
 
+    private static final String DB_Nombre= "app.sqlite";
+
     String sqlCreate = "CREATE TABLE empresa (indice INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nombre TEXT, mechardising TEXT, emisora TEXT, codigo INTEGER)";
 
     public empresaSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, DB_Nombre, null, 1);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
