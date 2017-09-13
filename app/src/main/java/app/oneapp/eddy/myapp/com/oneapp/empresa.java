@@ -3,7 +3,6 @@ package app.oneapp.eddy.myapp.com.oneapp;
 
 public class empresa {
 
-    private int indice;
     private int codigo;
     private String nombre;
     private String mechardising;
@@ -41,14 +40,6 @@ public class empresa {
 
     public void setEmisora(String emisora) {
         this.emisora = emisora;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
     }
 
 

@@ -1,6 +1,7 @@
 package app.oneapp.eddy.myapp.com.oneapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,16 @@ public class ActivityInicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        btn = (Button) findViewById(R.id.buttonCrearEmpresa);
-        btn2 = (Button) findViewById(R.id.buttonEditarEmpresa);
+        //Forzar y cargar icono en el Action Bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_myicon);
+
+        empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivityInicio.this, "dbEmpresas", null, 1);
+        SQLiteDatabase db = empresa.getWritableDatabase();
+
+        //Botones del menú inicial
+        btn =  findViewById(R.id.buttonCrearEmpresa);
+        btn2 = findViewById(R.id.buttonEditarEmpresa);
 
         btn.setOnClickListener(new View.OnClickListener(){
                                    @Override

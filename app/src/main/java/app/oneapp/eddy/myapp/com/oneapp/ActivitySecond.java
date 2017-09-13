@@ -23,6 +23,8 @@ public class ActivitySecond extends AppCompatActivity {
         edtEmisora = (EditText) findViewById(R.id.eTEmisora);
         edtCodigo = (EditText) findViewById(R.id.eTCodigo);
 
+        Toast.makeText(ActivitySecond.this, "Ingrese los datos por favor.", Toast.LENGTH_SHORT).show();
+
         btn = (Button) findViewById(R.id.buttonGuardar);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -30,18 +32,28 @@ public class ActivitySecond extends AppCompatActivity {
             public void onClick(View view) {
 
                 String pro = edtProducto.getText().toString();
+                Toast.makeText(ActivitySecond.this, "Ingrese los datos por favor." + pro + "GG", Toast.LENGTH_SHORT).show();
+
                 String mercha = edtMerchandising.getText().toString();
                 String emi = edtEmisora.getText().toString();
                 String cod = edtCodigo.getText().toString();
 
                 if(pro.length() > 0 && mercha.length() > 0 && emi.length() > 0 && cod.length() > 0){
 
-                    empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivitySecond.this, "DBEmpresas", null, 1);
-                    SQLiteDatabase db = empresa.getWritableDatabase();
+                   // db.execSQL("INSERT INTO empresa (indice, nombre, merchandising, emisora, codigo) VALUES (" + pro + ", '" + mercha + ", '" + emi + ", '" + cod + "')");
+                   // db.close();
 
-                    db.execSQL("INSERT INTO empresa (indice, nombre, merchandising, emisora, codigo) VALUES (" + pro + ", '" + mercha + ", '" + emi + ", '" + cod + "')");
+                    empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivitySecond.this, "dbEmpresas", null, 1);
+                    SQLiteDatabase db = empresa.getWritableDatabase();
+                    int i = 1;
+                    String insert = "INSERT INTO " + Adaptador.tabla_empresa + " (" + Adaptador.nombre + ", "
+                            + Adaptador.mechardising + ", " + Adaptador.emisora + ", " + Adaptador.codigo + ") VALUES ( '"
+                            + pro + "', '" + mercha + "', '" + emi + "', '" + cod + "')";
+
+                    db.execSQL(insert);
                     db.close();
-                    Toast.makeText(ActivitySecond.this, "¡SE CREO UNA EMPRESA NUEVA!", Toast.LENGTH_SHORT);
+
+                    Toast.makeText(ActivitySecond.this, "¡SE CREO UNA EMPRESA NUEVA!", Toast.LENGTH_SHORT).show();
 
                     edtProducto.setText("");
                     edtMerchandising.setText("");
@@ -50,11 +62,12 @@ public class ActivitySecond extends AppCompatActivity {
 
                 }else {
 
-                    Toast.makeText(ActivitySecond.this, "Debe llenar todos los datos.", Toast.LENGTH_SHORT);
+                    Toast.makeText(ActivitySecond.this, "Debe llenar todos los datos para continuar.", Toast.LENGTH_SHORT).show();
 
                 }
 
             }
         });
     }
+
 }
