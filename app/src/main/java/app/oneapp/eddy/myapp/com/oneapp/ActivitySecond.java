@@ -1,5 +1,6 @@
 package app.oneapp.eddy.myapp.com.oneapp;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,16 @@ public class ActivitySecond extends AppCompatActivity {
 
     private View btn;
     EditText edtProducto, edtMerchandising, edtEmisora, edtCodigo;
+
+    //Comprobar si una cadena es un número
+    public static boolean isNumeric(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+            return false;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,40 +43,54 @@ public class ActivitySecond extends AppCompatActivity {
             public void onClick(View view) {
 
                 String pro = edtProducto.getText().toString();
-                Toast.makeText(ActivitySecond.this, "Ingrese los datos por favor." + pro + "GG", Toast.LENGTH_SHORT).show();
-
                 String mercha = edtMerchandising.getText().toString();
                 String emi = edtEmisora.getText().toString();
                 String cod = edtCodigo.getText().toString();
 
+
+                //Verifica que los campos estén llenos
                 if(pro.length() > 0 && mercha.length() > 0 && emi.length() > 0 && cod.length() > 0){
 
-                   // db.execSQL("INSERT INTO empresa (indice, nombre, merchandising, emisora, codigo) VALUES (" + pro + ", '" + mercha + ", '" + emi + ", '" + cod + "')");
-                   // db.close();
+                    if(ActivitySecond.isNumeric(cod) == true){
 
-                    empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivitySecond.this, "dbEmpresas", null, 1);
-                    SQLiteDatabase db = empresa.getWritableDatabase();
-                    int i = 1;
-                    String insert = "INSERT INTO " + Adaptador.tabla_empresa + " (" + Adaptador.nombre + ", "
-                            + Adaptador.mechardising + ", " + Adaptador.emisora + ", " + Adaptador.codigo + ") VALUES ( '"
-                            + pro + "', '" + mercha + "', '" + emi + "', '" + cod + "')";
+                        // db.execSQL("INSERT INTO empresa (indice, nombre, merchandising, emisora, codigo) VALUES (" + pro + ", '" + mercha + ", '" + emi + ", '" + cod + "')");
+                        // db.close();
 
-                    db.execSQL(insert);
-                    db.close();
+                        empresaSQLiteHelper empresa = new empresaSQLiteHelper(ActivitySecond.this, "dbEmpresas", null, 1);
+                        SQLiteDatabase db = empresa.getWritableDatabase();
 
-                    Toast.makeText(ActivitySecond.this, "¡SE CREO UNA EMPRESA NUEVA!", Toast.LENGTH_SHORT).show();
+                        //String insert = "INSERT INTO " + Adaptador.tabla_empresa + " (" + Adaptador.nombre + ", "
+                        //       + Adaptador.mechardising + ", " + Adaptador.emisora + ", " + Adaptador.codigo + ") VALUES ( '"
+                        //        + pro + "', '" + mercha + "', '" + emi + "', '" + cod + "')";
 
-                    edtProducto.setText("");
-                    edtMerchandising.setText("");
-                    edtEmisora.setText("");
-                    edtCodigo.setText("");
+                        db.execSQL(Adaptador.insertar(pro, mercha, emi, cod));
 
-                }else {
+                        //db.execSQL(insert);
+                        db.close();
 
-                    Toast.makeText(ActivitySecond.this, "Debe llenar todos los datos para continuar.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivitySecond.this, "¡SE CREO UNA EMPRESA NUEVA!", Toast.LENGTH_SHORT).show();
 
+                        //Limpia los campos
+                        edtProducto.setText("");
+                        edtMerchandising.setText("");
+                        edtEmisora.setText("");
+                        edtCodigo.setText("");
+
+                        //Volver a la activity  inicio
+                        Intent intent = new Intent(ActivitySecond.this, ActivityInicio.class);
+                        startActivity(intent);
+
+                        //Algún campo sin llenar
+                    }else {
+
+                        Toast.makeText(ActivitySecond.this, "Debe llenar todos los datos para continuar.", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }else{
+
+                    Toast.makeText(ActivitySecond.this, "El codigo debe ser númerico.", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }

@@ -13,6 +13,12 @@ public class Adaptador {
             + nombre + " TEXT, " + mechardising + " TEXT, "
             + emisora + " TEXT, " + codigo + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)";
 
+    public static String insertar(String pro, String mercha, String emi, String cod) {
 
+        String insert = "INSERT INTO " + Adaptador.tabla_empresa + " (" + Adaptador.nombre + ", "
+                + Adaptador.mechardising + ", " + Adaptador.emisora + ", " + Adaptador.codigo + ") VALUES ( '"
+                + pro + "', '" + mercha + "', '" + emi + "', " + cod + ")";
 
+        return insert;
+    }
 }
